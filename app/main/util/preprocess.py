@@ -217,6 +217,6 @@ def fill_nans(data):
 
 def encode_categorical(data):
     cat_features = ["type", "model", "brand", "gearbox", "fuel"]
-    for i in range(len(cat_features)):
+    for i, cat_feature in enumerate(cat_features):
         data[cat_feature] = les[i].transform(np.array([data[cat_feature]]))[0]
     return data
