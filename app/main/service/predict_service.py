@@ -29,9 +29,12 @@ def make_prediction(data):
     if data['gearbox'] == '':
         data['gearbox'] = 'other'
 
+    print('\n\n\n', 1, '\n\n\n')
     preprocessed = preprocess(data)
+    print('\n\n\n', 2, '\n\n\n')
     result = predict(model, preprocessed)
-    
+    print('\n\n\n', 3, '\n\n\n')
+
     return {
         "price": round(result[0], 2)
     }, 201

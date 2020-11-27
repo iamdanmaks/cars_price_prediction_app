@@ -18,13 +18,19 @@ def preprocess(data):
     result['decade'] = get_decade(result['registration_year'])
     result['mileage'] = mileage_group(result['mileage'])
 
+    print('\n', 1.1, '\n')
+
     result['geo_group'] = zipcode_group(result['zipcode'], zip_geo_groups, coords)
 
     del result['registration_year']
     del result['zipcode']
 
+    print('\n', 1.2, '\n')
+
     result = fill_nans(result)
     result = encode_categorical(result)
+
+    print('\n', 1.3, '\n')
 
     return pd.DataFrame({k: [v] for (k, v) in result.items()}).to_numpy()
 
