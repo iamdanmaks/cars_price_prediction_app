@@ -38,16 +38,3 @@ def make_prediction(data):
     return {
         "price": round(result[0], 2)
     }, 201
-
-    '''if check_input(data):
-        preprocessed = preprocess(data)
-        result = predict(model, preprocessed)
-        
-        return {
-            "price": round(result[0], 2)
-        }, 201
-    else:
-        return {
-            "status": "fail",
-            "message": "Wrong values were passed"
-        }, 400'''

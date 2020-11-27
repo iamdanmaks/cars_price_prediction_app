@@ -7,4 +7,5 @@ def load_model():
 
 
 def predict(model, car_vec):
+    print('\n', 2.1, '\n')
     return np.exp(model.predict(car_vec))
