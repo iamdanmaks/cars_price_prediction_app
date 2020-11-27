@@ -1,5 +1,4 @@
 import joblib
-import numpy as np
 
 
 def load_model():
@@ -8,4 +7,4 @@ def load_model():
 
 def predict(model, car_vec):
     print('\n', 2.1, '\n')
-    return np.exp(model.predict(car_vec))
+    return model.predict(car_vec)

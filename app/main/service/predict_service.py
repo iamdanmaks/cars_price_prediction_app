@@ -36,5 +36,5 @@ def make_prediction(data):
     print('\n\n\n', 3, '\n\n\n')
 
     return {
-        "price": round(result[0], 2)
+        "price": round(np.exp(result[0]), 2)
     }, 201
