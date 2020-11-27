@@ -1,2 +1,2 @@
 # cars_price_prediction_app
-Cars price prediction model from techtallents contest
+При обновлении main ветки репозитория автоматически обновится сервис на Heroku доступній по [ссылке](https://cars-pr.herokuapp.com/). Для обучения модели использовался датасет с кагла предоставленный ранее на соревновании.
