@@ -1,1 +1,1 @@
-web: gunicorn run:app --preload -w 3 -b 0.0.0.0:$PORT
+web: gunicorn run:app -b "0.0.0.0:$PORT" -w 3

@@ -12,6 +12,3 @@ app.register_blueprint(blueprint)
 
 app.app_context().push()
 app.add_url_rule('/', 'index', view_func=index)
-
-port = int(os.environ.get('PORT', 33507))
-app.run(debug=False, port=port)
