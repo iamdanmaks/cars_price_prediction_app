@@ -32,7 +32,8 @@ def make_prediction(data):
     print('\n\n\n', 1, '\n\n\n')
     preprocessed = preprocess(data)
     print('\n\n\n', 2, '\n\n\n')
-    result = predict(model, preprocessed)
+    result = model.predict(preprocessed)
+    #result = predict(model, preprocessed)
     print('\n\n\n', 3, '\n\n\n')
 
     return {
