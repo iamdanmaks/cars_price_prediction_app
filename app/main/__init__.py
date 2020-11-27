@@ -1,3 +1,5 @@
+import pandas as pd
+
 from flask import Flask
 from flask_cors import CORS
 
@@ -7,6 +9,10 @@ from .util.model import load_model
 
 model = load_model()
 cors = CORS()
+coords = pd.read_csv(
+        './app/main/util/state/zipcodes.csv'
+    )
+zip_geo_groups = coords[['zipcode', 'group']].set_index('zipcode').to_dict()['group']
 
 
 def create_app(config_name):

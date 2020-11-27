@@ -2,6 +2,7 @@ import datetime
 import joblib
 import numpy as np
 import pandas as pd
+from ..import coords, zip_geo_groups
 
 
 def preprocess(data):
@@ -16,10 +17,6 @@ def preprocess(data):
     result['year'] = get_year(result['registration_year'])
     result['decade'] = get_decade(result['registration_year'])
     result['mileage'] = mileage_group(result['mileage'])
-    coords = pd.read_csv(
-        './app/main/util/state/zipcodes.csv'
-    )
-    zip_geo_groups = coords[['zipcode', 'group']].set_index('zipcode').to_dict()['group']
 
     result['geo_group'] = zipcode_group(result['zipcode'], zip_geo_groups, coords)
 
