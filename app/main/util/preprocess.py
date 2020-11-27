@@ -2,7 +2,7 @@ import datetime
 import joblib
 import numpy as np
 import pandas as pd
-from ..import coords, zip_geo_groups
+from ..import coords, zip_geo_groups, les
 
 
 def preprocess(data):
@@ -217,7 +217,6 @@ def fill_nans(data):
 
 def encode_categorical(data):
     cat_features = ["type", "model", "brand", "gearbox", "fuel"]
-    for cat_feature in cat_features:
-        le = joblib.load(f'./app/main/util/state/label_encoder_{cat_feature}.pkl')
-        data[cat_feature] = le.transform(np.array([data[cat_feature]]))[0]
+    for i in range(len(cat_features)):
+        data[cat_feature] = les[i].transform(np.array([data[cat_feature]]))[0]
     return data

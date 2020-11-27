@@ -1,3 +1,4 @@
+import joblib
 import pandas as pd
 
 from flask import Flask
@@ -13,6 +14,11 @@ coords = pd.read_csv(
         './app/main/util/state/zipcodes.csv'
     )
 zip_geo_groups = coords[['zipcode', 'group']].set_index('zipcode').to_dict()['group']
+
+les = []
+cat_features = ["type", "model", "brand", "gearbox", "fuel"]
+for cat_feature in cat_features:
+    les.append(joblib.load(f'./app/main/util/state/label_encoder_{cat_feature}.pkl'))
 
 
 def create_app(config_name):
